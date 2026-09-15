@@ -1,35 +1,46 @@
 <!DOCTYPE html>
+<html lang="en">
 <html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BibTeX to Bibitem Converter</title>
     <title>BibTeX to Bibitem Converter | Fast, Free LaTeX Citation Generator</title>
 
     <!-- SEO & Metadata -->
     <meta name="description"
+        content="Convert BibTeX bibliography entries to LaTeX bibitem format instantly. Paste text or upload .bib files.">
+    <link rel="stylesheet" href="styles.css">
+    content="Convert BibTeX bibliography entries to standard LaTeX \bibitem format instantly. Supports IEEE, ACM,
+    Springer, arXiv, articles, books, preprints, and batch file conversions.">
         content="Convert BibTeX bibliography entries to standard LaTeX \bibitem format instantly. Supports IEEE, ACM, Springer, arXiv, articles, books, preprints, and batch file conversions.">
     <meta name="keywords"
         content="bibtex to bibitem, bibitem generator, bibtex converter, latex bibliography, ieee bibitem, latex citation generator, bibtex to latex, convert bib to bibitem">
     <meta name="author" content="Imran Pollob">
     <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://imranpollob.github.io/BibTeX-to-Bibitem/">
     <link rel="canonical" href="https://imranpollob.github.io/bibtex-to-bibitem/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://imranpollob.github.io/BibTeX-to-Bibitem/">
     <meta property="og:url" content="https://imranpollob.github.io/bibtex-to-bibitem/">
     <meta property="og:title" content="BibTeX to Bibitem Converter | Fast & Professional LaTeX Citation Tool">
     <meta property="og:description"
         content="Convert BibTeX references into clean, accurate LaTeX \bibitem entries in real-time. Features IEEE style formatting, batch file upload, and instant export.">
+    <meta property="og:image" content="https://imranpollob.github.io/BibTeX-to-Bibitem/logo.png">
     <meta property="og:image" content="https://imranpollob.github.io/bibtex-to-bibitem/logo.png">
     <meta property="og:site_name" content="BibTeX to Bibitem Converter">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://imranpollob.github.io/BibTeX-to-Bibitem/">
     <meta name="twitter:url" content="https://imranpollob.github.io/bibtex-to-bibitem/">
     <meta name="twitter:title" content="BibTeX to Bibitem Converter | LaTeX Bibliography Generator">
     <meta name="twitter:description"
         content="Free tool to convert BibTeX files (.bib) to standard LaTeX \bibitem syntax with 100% precision.">
+    <meta name="twitter:image" content="https://imranpollob.github.io/BibTeX-to-Bibitem/logo.png">
     <meta name="twitter:image" content="https://imranpollob.github.io/bibtex-to-bibitem/logo.png">
     <meta name="twitter:creator" content="@imranpollob">
 
@@ -53,6 +64,7 @@
     <!-- Google Fonts: Outfit & Plus Jakarta Sans & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
         rel="stylesheet">
@@ -67,8 +79,10 @@
       "@graph": [
         {
           "@type": "WebApplication",
+          "@id": "https://imranpollob.github.io/BibTeX-to-Bibitem/#app",
           "@id": "https://imranpollob.github.io/bibtex-to-bibitem/#app",
           "name": "BibTeX to Bibitem Converter",
+          "url": "https://imranpollob.github.io/BibTeX-to-Bibitem/",
           "url": "https://imranpollob.github.io/bibtex-to-bibitem/",
           "description": "Convert BibTeX bibliography entries to clean LaTeX bibitem format instantly.",
           "applicationCategory": "EducationalApplication",
@@ -122,12 +136,14 @@
     <!-- Top Brand Navbar -->
     <nav class="navbar">
         <div class="navbar-container">
+            <a href="https://imranpollob.github.io/BibTeX-to-Bibitem/" class="brand-link">
             <a href="https://imranpollob.github.io/bibtex-to-bibitem/" class="brand-link">
                 <img src="logo.png" alt="Imran Pollob Logo" class="brand-logo" width="36" height="36">
                 <span class="brand-title">BibTeX <span class="brand-accent">→</span> Bibitem</span>
             </a>
             <div class="nav-actions">
                 <span class="badge badge-brand">By Imran Pollob</span>
+                <a href="https://github.com/imranpollob/BibTeX-to-Bibitem" target="_blank" rel="noopener noreferrer"
                 <a href="https://github.com/imranpollob/bibtex-to-bibitem" target="_blank" rel="noopener noreferrer"
                     class="btn btn-icon" title="View Source on GitHub" aria-label="GitHub Repository">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -161,8 +177,11 @@
     </nav>
 
     <div class="container">
+        <!-- Header -->
         <!-- Hero Header -->
         <header class="header">
+            <h1>BibTeX to Bibitem Converter</h1>
+            <p class="subtitle">Convert your BibTeX bibliography entries to LaTeX <code>\bibitem</code> format</p>
             <h1 class="hero-title">BibTeX to Bibitem Converter</h1>
             <p class="subtitle">Convert BibTeX bibliography entries into professional, standard LaTeX
                 <code>\bibitem</code> format for research papers and theses.</p>
@@ -215,6 +234,8 @@
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
                             <polyline points="7 10 12 15 17 10"></polyline>
                             <line x1="12" y1="15" x2="12" y2="3"></line>
                         </svg>
@@ -255,6 +276,8 @@ You can directly edit the output or copy it to your document." readonly></textar
 
                 <div class="stats-bar">
                     <span id="output-info" class="entry-info">Waiting for conversion</span>
+                    <span class="keyboard-hint">Shortcut: <kbd>Cmd/Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> to
+                        copy</span>
                     <span class="keyboard-hint">Shortcut: <kbd>Cmd/Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> to copy</span>
                 </div>
 
@@ -348,13 +371,19 @@ A. Vaswani, N. Shazeer, and N. Parmar, ``Attention is all you need,'' \emph{Adva
 
         <!-- Footer -->
         <footer class="footer">
+            <p>Made with ❤️ for the LaTeX community |
+                <a href="https://github.com/imranpollob/BibTeX-to-Bibitem" target="_blank">GitHub</a> |
+                <a href="https://github.com/imranpollob/BibTeX-to-Bibitem#readme" target="_blank">Documentation</a>
+            </p>
             <div class="footer-content">
                 <p>Designed & Developed with ❤️ by <a href="https://github.com/imranpollob" target="_blank"
                         rel="noopener noreferrer"><strong>Imran Pollob</strong></a></p>
                 <div class="footer-links">
+                    <a href="https://github.com/imranpollob/BibTeX-to-Bibitem" target="_blank"
                     <a href="https://github.com/imranpollob/bibtex-to-bibitem" target="_blank"
                         rel="noopener noreferrer">GitHub Repo</a>
                     <span class="sep">•</span>
+                    <a href="https://github.com/imranpollob/BibTeX-to-Bibitem/blob/master/LICENSE" target="_blank"
                     <a href="https://github.com/imranpollob/bibtex-to-bibitem/blob/master/LICENSE" target="_blank"
                         rel="noopener noreferrer">MIT License</a>
                     <span class="sep">•</span>
