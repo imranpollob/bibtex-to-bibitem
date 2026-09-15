@@ -1,0 +1,464 @@
+% BibTeX -> \bibitem converter regression test suite
+% Expected output file: expected_bibitems.tex
+%
+% Formatting assumptions used by the expected output:
+% - IEEE-like numerical bibliography style
+% - Article/conference/thesis titles use sentence case
+% - Protected capitalization such as {AI}, {EVM}, {Ethereum} is preserved
+% - Book/proceedings/manual titles preserve title capitalization
+% - URLs are emitted with \url{...}
+% - DOI URLs/prefixes are normalized to bare DOI identifiers
+% - Empty optional fields are omitted
+% - Unknown fields may be ignored
+% - Unknown entry types may fall back to misc-style formatting
+% - organization may be used as a creator fallback for misc/online entries
+% - DOI is preferred over a duplicate publication URL when both are present
+
+@article{t01_basic_article,
+  author  = {John Smith and Alice Brown},
+  title   = {Security Analysis of Blockchain Systems},
+  journal = {IEEE Transactions on Dependable and Secure Computing},
+  volume  = {22},
+  number  = {3},
+  pages   = {421--435},
+  year    = {2025}
+}
+
+@inproceedings{t02_conference,
+  author    = {Michael Lee and Robert Jones and Sarah Ahmed},
+  title     = {Detecting Vulnerabilities in Smart Contracts},
+  booktitle = {Proceedings of the IEEE Symposium on Security and Privacy},
+  pages     = {120--134},
+  year      = {2024}
+}
+
+@article{t03_article_doi,
+  author  = {Wei Chen and David Miller},
+  title   = {Privacy-Preserving Account Abstraction},
+  journal = {IEEE Transactions on Information Forensics and Security},
+  volume  = {21},
+  pages   = {1001--1016},
+  year    = {2026},
+  doi     = {10.1109/TIFS.2026.1234567}
+}
+
+@article{t04_article_url,
+  author  = {Imran Rahman},
+  title   = {Understanding {Ethereum} Account Abstraction},
+  journal = {Blockchain Research Journal},
+  volume  = {8},
+  number  = {2},
+  pages   = {55--71},
+  year    = {2025},
+  url     = {https://example.org/papers/account-abstraction},
+  note    = {Accessed: Sep. 15, 2026}
+}
+
+@book{t05_book,
+  author    = {William Stallings},
+  title     = {Cryptography and Network Security},
+  edition   = {7th},
+  publisher = {Pearson},
+  address   = {Boston, MA, USA},
+  year      = {2017}
+}
+
+@book{t06_edited_book,
+  editor    = {Alice Johnson and Mark Wilson},
+  title     = {Modern Blockchain Security},
+  publisher = {Springer},
+  address   = {Cham, Switzerland},
+  year      = {2024}
+}
+
+@incollection{t07_book_chapter,
+  author    = {Thomas Brown},
+  title     = {Zero-Knowledge Proofs for Blockchain Privacy},
+  booktitle = {Advances in Applied Cryptography},
+  editor    = {James Miller and Susan Clark},
+  publisher = {Springer},
+  address   = {Cham, Switzerland},
+  pages     = {101--125},
+  year      = {2023}
+}
+
+@phdthesis{t08_phd,
+  author  = {Jane Doe},
+  title   = {Security and Privacy in Decentralized Systems},
+  school  = {Wayne State University},
+  address = {Detroit, MI, USA},
+  year    = {2024}
+}
+
+@mastersthesis{t09_masters,
+  author  = {Ahmed Khan},
+  title   = {Automated Smart Contract Analysis},
+  school  = {University of Michigan},
+  address = {Ann Arbor, MI, USA},
+  year    = {2023}
+}
+
+@techreport{t10_techreport,
+  author      = {{National Institute of Standards and Technology}},
+  title       = {Blockchain Security Guidelines},
+  institution = {National Institute of Standards and Technology},
+  address     = {Gaithersburg, MD, USA},
+  number      = {NIST-IR-9999},
+  year        = {2024}
+}
+
+@misc{t11_misc_url,
+  author       = {{Ethereum Foundation}},
+  title        = {{ERC-4337}: Account Abstraction Using Alt Mempool},
+  howpublished = {\url{https://eips.ethereum.org/EIPS/eip-4337}},
+  year         = {2023},
+  note         = {Accessed: Sep. 15, 2026}
+}
+
+@online{t12_online,
+  author  = {{Ethereum}},
+  title   = {{EIP-7702}: Set Code for {EOAs}},
+  year    = {2024},
+  url     = {https://eips.ethereum.org/EIPS/eip-7702},
+  urldate = {2026-09-15}
+}
+
+@article{t13_arxiv_article,
+  author        = {Li Wang and Peter Smith},
+  title         = {Security Analysis of Programmable Accounts},
+  journal       = {arXiv preprint arXiv:2604.01234},
+  year          = {2026},
+  eprint        = {2604.01234},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CR}
+}
+
+@misc{t14_arxiv_misc,
+  author        = {Li Wang and Peter Smith},
+  title         = {Security Analysis of Programmable Accounts},
+  year          = {2026},
+  eprint        = {2604.01234},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CR}
+}
+
+@article{t15_many_authors,
+  author  = {John Smith and Alice Brown and Robert Lee and David Chen and Sarah Khan},
+  title   = {Large-Scale Measurement of Smart Contract Security},
+  journal = {IEEE Security \& Privacy},
+  volume  = {23},
+  number  = {4},
+  pages   = {20--31},
+  year    = {2025}
+}
+
+@article{t16_last_first,
+  author  = {Smith, John Michael and Brown, Alice Marie},
+  title   = {A Study of Name Parsing},
+  journal = {Test Journal},
+  year    = {2025}
+}
+
+@article{t17_jr_name,
+  author  = {Smith, Jr., John Michael and Brown, Alice},
+  title   = {Complex Author Names},
+  journal = {Test Journal},
+  year    = {2025}
+}
+
+@article{t18_von_names,
+  author  = {Ludwig van Beethoven and Juan de la Cruz and John von Neumann},
+  title   = {Testing Compound Family Names},
+  journal = {Name Processing Journal},
+  year    = {2025}
+}
+
+@article{t19_latex_accents,
+  author  = {Jos{\'e} Garc{\'i}a and J{\"u}rgen M{\"u}ller and Fran{\c c}ois Martin},
+  title   = {M{\'e}thodes de S{\'e}curit{\'e}},
+  journal = {International Security Journal},
+  year    = {2025}
+}
+
+@article{t20_protected_caps,
+  author  = {Robert Wilson},
+  title   = {Using {AI}, {LLMs}, {GNNs}, and {Ethereum} for Detecting {EVM} Vulnerabilities},
+  journal = {IEEE Access},
+  year    = {2026}
+}
+
+@article{t21_nested_braces,
+  author  = {John Doe},
+  title   = {Analysis of {{Ethereum}'s {EVM}} Execution Model},
+  journal = {Blockchain Journal},
+  year    = {2025}
+}
+
+@article{t22_quoted_fields,
+  author  = "John Smith and Alice Brown",
+  title   = "Testing Quoted BibTeX Fields",
+  journal = "Software Testing Journal",
+  year    = "2025"
+}
+
+@article{t23_mixed_fields,
+  author  = "John Smith",
+  title   = {Security of {EVM} Applications},
+  journal = "IEEE Access",
+  volume  = {13},
+  year    = "2025"
+}
+
+@article{t24_unusual_order,
+  year    = {2025},
+  pages   = {10--20},
+  title   = {Field Order Should Not Matter},
+  volume  = {5},
+  author  = {John Smith},
+  journal = {Test Journal}
+}
+
+@article{t25_trailing_comma,
+  author  = {John Smith},
+  title   = {Trailing Comma Test},
+  journal = {Test Journal},
+  year    = {2025},
+}
+
+@article{t26_multiline,
+  author = {John Smith and
+            Alice Brown and
+            Robert Wilson},
+  title = {A Long Study of
+           Security Problems in
+           Blockchain Systems},
+  journal = {IEEE Access},
+  year = {2025}
+}
+
+@article{t27_month_macro,
+  author  = {John Smith},
+  title   = {Month Macro Test},
+  journal = {Test Journal},
+  month   = jan,
+  year    = {2025}
+}
+
+@string{TIFS = "IEEE Transactions on Information Forensics and Security"}
+
+@article{t28_string_macro,
+  author  = {John Smith},
+  title   = {Testing BibTeX Strings},
+  journal = TIFS,
+  volume  = {20},
+  year    = {2025}
+}
+
+@string{IEEEPREFIX = "IEEE "}
+
+@article{t29_string_concat,
+  author  = {John Smith},
+  title   = {String Concatenation},
+  journal = IEEEPREFIX # "Transactions on Information Forensics and Security",
+  year    = {2025}
+}
+
+@article{t30_bare_numbers,
+  author  = {John Smith},
+  title   = {Numeric Fields},
+  journal = {Test Journal},
+  volume  = 10,
+  number  = 4,
+  year    = 2025
+}
+
+@article{t31_special_chars,
+  author  = {John Smith},
+  title   = {Security \& Privacy: A 50\% Improvement Using A\_B Testing},
+  journal = {Research \& Development},
+  year    = {2025}
+}
+
+@misc{t32_url_special_chars,
+  author = {John Smith},
+  title  = {Online Security Dataset},
+  year   = {2025},
+  url    = {https://example.com/search?q=ethereum&category=security_test},
+  note   = {Accessed: Sep. 15, 2026}
+}
+
+@book{t33_edition_numeric,
+  author    = {John Smith},
+  title     = {Blockchain Security},
+  edition   = {2},
+  publisher = {Springer},
+  year      = {2025},
+  isbn      = {978-3-12345-678-9}
+}
+
+@proceedings{t34_proceedings,
+  title        = {Proceedings of the 46th IEEE Symposium on Security and Privacy},
+  year         = {2025},
+  organization = {IEEE},
+  address      = {San Francisco, CA, USA}
+}
+
+@manual{t35_manual,
+  title        = {Solidity Documentation},
+  author       = {{Solidity Team}},
+  organization = {Ethereum Foundation},
+  year         = {2025},
+  url          = {https://docs.soliditylang.org/}
+}
+
+@unpublished{t36_unpublished,
+  author = {Jane Doe and John Smith},
+  title  = {An Empirical Study of Account-Abstraction Security},
+  note   = {Unpublished manuscript},
+  year   = {2026}
+}
+
+@misc{t37_patent_misc,
+  author       = {John Smith},
+  title        = {Secure Transaction Processing System},
+  howpublished = {U.S. Patent 12 345 678},
+  year         = {2024}
+}
+
+@proceedings{t38_parent_proceedings,
+  title     = {Proceedings of the 2025 International Security Conference},
+  year      = {2025},
+  publisher = {IEEE}
+}
+
+@inproceedings{t39_crossref,
+  author   = {John Smith},
+  title    = {Smart Contract Analysis},
+  pages    = {50--61},
+  crossref = {t38_parent_proceedings}
+}
+
+% This comment should be ignored.
+@article{t40_comments,
+  author  = {John Smith}, % author comment
+  title   = {Comment Handling}, % title comment
+  journal = {Test Journal},
+  year    = {2025}
+}
+
+@comment{
+This entire block should be ignored by the converter.
+}
+
+@article{t41_empty_fields,
+  author  = {John Smith},
+  title   = {Empty Field Test},
+  journal = {Test Journal},
+  volume  = {},
+  number  = "",
+  pages   = {},
+  year    = {2025}
+}
+
+@misc{t42_missing_author_org,
+  title        = {Ethereum Security Guidelines},
+  organization = {Ethereum Foundation},
+  year         = {2025}
+}
+
+@misc{t43_missing_author_no_org,
+  title = {Ethereum Security Guidelines},
+  year  = {2025}
+}
+
+@misc{t44_missing_year,
+  author = {{Ethereum Foundation}},
+  title  = {Developer Documentation},
+  url    = {https://ethereum.org/developers/}
+}
+
+@article{t45_punctuation_title,
+  author  = {John Smith},
+  title   = {Who Pays the Gas? Privacy, Security, and Account-Abstraction Trade-offs},
+  journal = {Blockchain Journal},
+  year    = {2025}
+}
+
+@article{t46_comma_inside_values,
+  author  = {Smith, John and Brown, Alice},
+  title   = {Security, Privacy, and Reliability},
+  journal = {IEEE Access},
+  year    = {2025}
+}
+
+@article{t47_doi_url_normalization,
+  author  = {John Smith},
+  title   = {DOI Normalization},
+  journal = {IEEE Access},
+  year    = {2025},
+  doi     = {https://doi.org/10.1109/ACCESS.2025.1234567}
+}
+
+@online{t48_date_field,
+  author = {John Smith},
+  title  = {Security Advisory},
+  date   = {2026-04-17},
+  url    = {https://example.org/advisory}
+}
+
+@software{t49_software,
+  author  = {{Ethereum Foundation}},
+  title   = {go-ethereum},
+  version = {1.16.2},
+  year    = {2026},
+  url     = {https://github.com/ethereum/go-ethereum}
+}
+
+@dataset{t50_dataset,
+  author    = {John Smith and Alice Brown},
+  title     = {Ethereum Smart Contract Vulnerability Dataset},
+  year      = {2025},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.12345678}
+}
+
+@article{t51_quotes,
+  author  = {John Smith},
+  title   = {The ``Gas Sponsorship'' Problem in {Ethereum}},
+  journal = {Blockchain Journal},
+  year    = {2025}
+}
+
+@inproceedings{t52_complex_integration,
+  author    = {Jos{\'e} Garc{\'i}a and Smith, Jr., John Michael
+               and Alice van der Meer
+               and {Ethereum Security Research Team}},
+  title     = {Analyzing {EIP-7702}: Authorization, {EOA} Delegation,
+               and {EVM}-Level Security},
+  booktitle = {Proceedings of the 47th {IEEE} Symposium on Security and Privacy},
+  pages     = {1021--1038},
+  month     = may,
+  year      = 2026,
+  publisher = {IEEE},
+  address   = {San Francisco, CA, USA},
+  doi       = {10.1109/SP.2026.1234567},
+  url       = {https://example.org/papers/eip7702?version=2&format=pdf},
+  note      = {Artifact available online},
+}
+
+@patent{t53_biblatex_patent,
+  author   = {John Smith},
+  title    = {Secure Transaction Processing System},
+  number   = {US12345678B2},
+  location = {United States},
+  year     = {2025}
+}
+
+@misc{t54_biblatex_arxiv,
+  author      = {Alice Brown},
+  title       = {A Modern arXiv Metadata Test},
+  year        = {2026},
+  eprint      = {2607.01234},
+  eprinttype  = {arxiv},
+  eprintclass = {cs.CR}
+}

@@ -1,0 +1,174 @@
+% Expected \bibitem output for bibtex_test_cases.bib
+%
+% Style profile: deterministic IEEE-like output for converter regression tests.
+% The citation keys match the .bib file exactly.
+%
+% Notes:
+% - t38_parent_proceedings is included because t39_crossref depends on it.
+% - t52 deliberately prefers DOI over the duplicate URL and omits the note.
+% - t42 uses organization as a converter-specific creator fallback.
+% - URLs are always wrapped in \url{...}.
+% - Protected capitalization is preserved.
+% - Unprotected article/conference titles are sentence-cased.
+
+\bibitem{t01_basic_article}
+J. Smith and A. Brown, ``Security analysis of blockchain systems,'' \emph{IEEE Transactions on Dependable and Secure Computing}, vol. 22, no. 3, pp. 421--435, 2025.
+
+\bibitem{t02_conference}
+M. Lee, R. Jones, and S. Ahmed, ``Detecting vulnerabilities in smart contracts,'' in \emph{Proceedings of the IEEE Symposium on Security and Privacy}, 2024, pp. 120--134.
+
+\bibitem{t03_article_doi}
+W. Chen and D. Miller, ``Privacy-preserving account abstraction,'' \emph{IEEE Transactions on Information Forensics and Security}, vol. 21, pp. 1001--1016, 2026, doi: 10.1109/TIFS.2026.1234567.
+
+\bibitem{t04_article_url}
+I. Rahman, ``Understanding Ethereum account abstraction,'' \emph{Blockchain Research Journal}, vol. 8, no. 2, pp. 55--71, 2025. [Online]. Available: \url{https://example.org/papers/account-abstraction}. Accessed: Sep. 15, 2026.
+
+\bibitem{t05_book}
+W. Stallings, \emph{Cryptography and Network Security}, 7th ed. Boston, MA, USA: Pearson, 2017.
+
+\bibitem{t06_edited_book}
+A. Johnson and M. Wilson, Eds., \emph{Modern Blockchain Security}. Cham, Switzerland: Springer, 2024.
+
+\bibitem{t07_book_chapter}
+T. Brown, ``Zero-knowledge proofs for blockchain privacy,'' in \emph{Advances in Applied Cryptography}, J. Miller and S. Clark, Eds. Cham, Switzerland: Springer, 2023, pp. 101--125.
+
+\bibitem{t08_phd}
+J. Doe, ``Security and privacy in decentralized systems,'' Ph.D. dissertation, Wayne State University, Detroit, MI, USA, 2024.
+
+\bibitem{t09_masters}
+A. Khan, ``Automated smart contract analysis,'' Master's thesis, University of Michigan, Ann Arbor, MI, USA, 2023.
+
+\bibitem{t10_techreport}
+National Institute of Standards and Technology, ``Blockchain security guidelines,'' National Institute of Standards and Technology, Gaithersburg, MD, USA, Tech. Rep. NIST-IR-9999, 2024.
+
+\bibitem{t11_misc_url}
+Ethereum Foundation, ``ERC-4337: Account abstraction using alt mempool,'' 2023. [Online]. Available: \url{https://eips.ethereum.org/EIPS/eip-4337}. Accessed: Sep. 15, 2026.
+
+\bibitem{t12_online}
+Ethereum, ``EIP-7702: Set code for EOAs,'' 2024. [Online]. Available: \url{https://eips.ethereum.org/EIPS/eip-7702}. Accessed: Sep. 15, 2026.
+
+\bibitem{t13_arxiv_article}
+L. Wang and P. Smith, ``Security analysis of programmable accounts,'' \emph{arXiv preprint arXiv:2604.01234}, 2026.
+
+\bibitem{t14_arxiv_misc}
+L. Wang and P. Smith, ``Security analysis of programmable accounts,'' arXiv:2604.01234, 2026.
+
+\bibitem{t15_many_authors}
+J. Smith, A. Brown, R. Lee, D. Chen, and S. Khan, ``Large-scale measurement of smart contract security,'' \emph{IEEE Security \& Privacy}, vol. 23, no. 4, pp. 20--31, 2025.
+
+\bibitem{t16_last_first}
+J. M. Smith and A. M. Brown, ``A study of name parsing,'' \emph{Test Journal}, 2025.
+
+\bibitem{t17_jr_name}
+J. M. Smith, Jr. and A. Brown, ``Complex author names,'' \emph{Test Journal}, 2025.
+
+\bibitem{t18_von_names}
+L. van Beethoven, J. de la Cruz, and J. von Neumann, ``Testing compound family names,'' \emph{Name Processing Journal}, 2025.
+
+\bibitem{t19_latex_accents}
+J. Garc{\'i}a, J. M{\"u}ller, and F. Martin, ``M{\'e}thodes de s{\'e}curit{\'e},'' \emph{International Security Journal}, 2025.
+
+\bibitem{t20_protected_caps}
+R. Wilson, ``Using AI, LLMs, GNNs, and Ethereum for detecting EVM vulnerabilities,'' \emph{IEEE Access}, 2026.
+
+\bibitem{t21_nested_braces}
+J. Doe, ``Analysis of Ethereum's EVM execution model,'' \emph{Blockchain Journal}, 2025.
+
+\bibitem{t22_quoted_fields}
+J. Smith and A. Brown, ``Testing quoted BibTeX fields,'' \emph{Software Testing Journal}, 2025.
+
+\bibitem{t23_mixed_fields}
+J. Smith, ``Security of EVM applications,'' \emph{IEEE Access}, vol. 13, 2025.
+
+\bibitem{t24_unusual_order}
+J. Smith, ``Field order should not matter,'' \emph{Test Journal}, vol. 5, pp. 10--20, 2025.
+
+\bibitem{t25_trailing_comma}
+J. Smith, ``Trailing comma test,'' \emph{Test Journal}, 2025.
+
+\bibitem{t26_multiline}
+J. Smith, A. Brown, and R. Wilson, ``A long study of security problems in blockchain systems,'' \emph{IEEE Access}, 2025.
+
+\bibitem{t27_month_macro}
+J. Smith, ``Month macro test,'' \emph{Test Journal}, Jan. 2025.
+
+\bibitem{t28_string_macro}
+J. Smith, ``Testing BibTeX strings,'' \emph{IEEE Transactions on Information Forensics and Security}, vol. 20, 2025.
+
+\bibitem{t29_string_concat}
+J. Smith, ``String concatenation,'' \emph{IEEE Transactions on Information Forensics and Security}, 2025.
+
+\bibitem{t30_bare_numbers}
+J. Smith, ``Numeric fields,'' \emph{Test Journal}, vol. 10, no. 4, 2025.
+
+\bibitem{t31_special_chars}
+J. Smith, ``Security \& privacy: A 50\% improvement using A\_B testing,'' \emph{Research \& Development}, 2025.
+
+\bibitem{t32_url_special_chars}
+J. Smith, ``Online security dataset,'' 2025. [Online]. Available: \url{https://example.com/search?q=ethereum&category=security_test}. Accessed: Sep. 15, 2026.
+
+\bibitem{t33_edition_numeric}
+J. Smith, \emph{Blockchain Security}, 2nd ed. Springer, 2025.
+
+\bibitem{t34_proceedings}
+\emph{Proceedings of the 46th IEEE Symposium on Security and Privacy}. San Francisco, CA, USA: IEEE, 2025.
+
+\bibitem{t35_manual}
+Solidity Team, \emph{Solidity Documentation}. Ethereum Foundation, 2025. [Online]. Available: \url{https://docs.soliditylang.org/}.
+
+\bibitem{t36_unpublished}
+J. Doe and J. Smith, ``An empirical study of account-abstraction security,'' unpublished manuscript, 2026.
+
+\bibitem{t37_patent_misc}
+J. Smith, ``Secure transaction processing system,'' U.S. Patent 12 345 678, 2024.
+
+\bibitem{t38_parent_proceedings}
+\emph{Proceedings of the 2025 International Security Conference}. IEEE, 2025.
+
+\bibitem{t39_crossref}
+J. Smith, ``Smart contract analysis,'' in \emph{Proceedings of the 2025 International Security Conference}, 2025, pp. 50--61.
+
+\bibitem{t40_comments}
+J. Smith, ``Comment handling,'' \emph{Test Journal}, 2025.
+
+\bibitem{t41_empty_fields}
+J. Smith, ``Empty field test,'' \emph{Test Journal}, 2025.
+
+\bibitem{t42_missing_author_org}
+Ethereum Foundation, ``Ethereum security guidelines,'' 2025.
+
+\bibitem{t43_missing_author_no_org}
+``Ethereum security guidelines,'' 2025.
+
+\bibitem{t44_missing_year}
+Ethereum Foundation, ``Developer documentation.'' [Online]. Available: \url{https://ethereum.org/developers/}.
+
+\bibitem{t45_punctuation_title}
+J. Smith, ``Who pays the gas? Privacy, security, and account-abstraction trade-offs,'' \emph{Blockchain Journal}, 2025.
+
+\bibitem{t46_comma_inside_values}
+J. Smith and A. Brown, ``Security, privacy, and reliability,'' \emph{IEEE Access}, 2025.
+
+\bibitem{t47_doi_url_normalization}
+J. Smith, ``DOI normalization,'' \emph{IEEE Access}, 2025, doi: 10.1109/ACCESS.2025.1234567.
+
+\bibitem{t48_date_field}
+J. Smith, ``Security advisory,'' Apr. 17, 2026. [Online]. Available: \url{https://example.org/advisory}.
+
+\bibitem{t49_software}
+Ethereum Foundation, \emph{go-ethereum}, version 1.16.2, 2026. [Online]. Available: \url{https://github.com/ethereum/go-ethereum}.
+
+\bibitem{t50_dataset}
+J. Smith and A. Brown, ``Ethereum smart contract vulnerability dataset,'' Zenodo, 2025, doi: 10.5281/zenodo.12345678.
+
+\bibitem{t51_quotes}
+J. Smith, ``The `gas sponsorship' problem in Ethereum,'' \emph{Blockchain Journal}, 2025.
+
+\bibitem{t52_complex_integration}
+J. Garc{\'i}a, J. M. Smith, Jr., A. van der Meer, and Ethereum Security Research Team, ``Analyzing EIP-7702: Authorization, EOA delegation, and EVM-level security,'' in \emph{Proceedings of the 47th IEEE Symposium on Security and Privacy}, San Francisco, CA, USA, May 2026, pp. 1021--1038, doi: 10.1109/SP.2026.1234567.
+
+\bibitem{t53_biblatex_patent}
+J. Smith, ``Secure transaction processing system,'' U.S. Patent US12345678B2, 2025.
+
+\bibitem{t54_biblatex_arxiv}
+A. Brown, ``A modern arXiv metadata test,'' arXiv:2607.01234, 2026.

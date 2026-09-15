@@ -1,167 +1,135 @@
-# BibTeX to Bibitem Converter
+<div align="center">
+  <img src="docs/logo.png" alt="BibTeX to Bibitem Logo" width="64" style="border-radius: 10px; margin-bottom: 8px;">
+  <h1>BibTeX to Bibitem Converter</h1>
+  <p>Convert BibTeX references into clean, IEEE-style LaTeX <code>\bibitem</code> entries instantly.</p>
 
-A professional tool to convert BibTeX bibliography entries to `\bibitem` format for LaTeX documents. Available as both a Python CLI tool and a web application.
+  <p>
+    <a href="https://imranpollob.github.io/BibTeX-to-Bibitem/"><img src="https://img.shields.io/badge/Live_App-Visit_Website-0d9488?style=flat-square" alt="Live Demo"></a>
+    <a href="https://github.com/imranpollob/BibTeX-to-Bibitem/blob/master/LICENSE"><img src="https://img.shields.io/badge/License-MIT-0f766e?style=flat-square" alt="License"></a>
+    <a href="https://github.com/imranpollob/personal-brand-theme"><img src="https://img.shields.io/badge/Design_Theme-Teal-14b8a6?style=flat-square" alt="Theme"></a>
+  </p>
+</div>
 
-![screenshot](screenshot.png)
+---
 
-## 🎯 Features
+When preparing paper submissions for conferences (IEEE, ACM, Springer) or uploading source files to arXiv, publishers often require a self-contained LaTeX document with inline `\bibitem` entries instead of a separate `.bib` database.
 
-- **Web Interface**: Modern, clean web app for instant conversion
-  - Paste BibTeX text or upload `.bib` files
-  - Real-time conversion preview
-  - Editable output for customization
-  - One-click copy to clipboard
-  - Download as `.txt` file
-  
-- **Python CLI Tool**: Command-line interface for batch processing
-  - Process entire `.bib` files
-  - Handles multiple entry types (articles, books, conference papers)
-  - Preserves special LaTeX characters
-  - Removes duplicate entries automatically
+Converting entries manually or fixing messy citation outputs is tedious. This tool automates the process with consistent, publication-ready formatting — available both as a web app and a Python CLI script.
 
-- **Professional Output**: Properly formatted `\bibitem` entries compatible with standard LaTeX documents
+---
 
-## 🌐 Web Application
+## 🌐 Web App
 
-**Try it online**: [https://imranpollob.github.io/BibTeX-to-Bibitem/](https://imranpollob.github.io/BibTeX-to-Bibitem/)
+Run it directly in your browser without installing anything:  
+👉 **[imranpollob.github.io/BibTeX-to-Bibitem](https://imranpollob.github.io/BibTeX-to-Bibitem/)**
 
-### Usage
+- **Instant conversion & live preview**: Paste text or drag-and-drop `.bib` files.
+- **1-Click sample loaders**: Preloaded examples for articles, conference papers, and books.
+- **Keyboard shortcuts**: <kbd>Ctrl/Cmd</kbd> + <kbd>Enter</kbd> to convert, <kbd>Ctrl/Cmd</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> to copy.
+- **Light & Dark mode**: Seamless theme switcher that remembers your preference.
 
-1. **Paste** BibTeX entries directly into the text area, or
-2. **Upload** a `.bib` file
-3. View the converted `\bibitem` entries
-4. Edit the output if needed
-5. **Copy** to clipboard or **Download** as a file
+---
 
-## 💻 Python CLI Tool
+## 💻 Python CLI
 
 ### Installation
 
 ```bash
-# Clone the repository
 git clone https://github.com/imranpollob/BibTeX-to-Bibitem.git
 cd BibTeX-to-Bibitem
-
-# Install dependencies
 pip install -r requirements.txt
-```
-
-### Quick Start
-
-```bash
-# Convert references.bib to bibitems.txt
-python script.py
-
-# Test the converter
-python test_converter.py
 ```
 
 ### Usage
 
-#### Basic Conversion
-
-Place your BibTeX entries in `references.bib` and run:
+Convert default `references.bib` to `bibitems.txt`:
 
 ```bash
 python script.py
 ```
 
-Output will be saved to `bibitems.txt`.
-
-#### Custom Input/Output
+Or specify custom input and output paths:
 
 ```bash
 python script.py --input my_references.bib --output my_bibitems.txt
 ```
 
-## 📖 Example
+---
 
-### Input (BibTeX)
+## 📌 Example
 
+**Input (`.bib`):**
 ```bibtex
-@article{lahat2015multimodal,
-  title={Multimodal data fusion: an overview of methods, challenges, and prospects},
-  author={Lahat, Dana and Adali, T{\"u}lay and Jutten, Christian},
-  journal={Proceedings of the IEEE},
-  volume={103},
-  number={9},
-  pages={1449--1477},
-  year={2015},
-  publisher={IEEE}
+@article{vaswani2017attention,
+  author  = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki},
+  title   = {Attention Is All You Need},
+  journal = {Advances in Neural Information Processing Systems},
+  volume  = {30},
+  pages   = {5998--6008},
+  year    = {2017},
+  doi     = {10.5555/3295222.3295349}
 }
 ```
 
-### Output (Bibitem)
-
+**Output (`\bibitem`):**
 ```latex
-\bibitem{lahat2015multimodal}
-Lahat, Dana, Adali, Tülay, Jutten, Christian.
-\newblock Multimodal data fusion: an overview of methods, challenges, and prospects.
-\newblock \emph{Proceedings of the IEEE}, 103(9):1449--1477, 2015.
+\bibitem{vaswani2017attention}
+A. Vaswani, N. Shazeer, and N. Parmar, ``Attention is all you need,'' \emph{Advances in Neural Information Processing Systems}, vol. 30, pp. 5998--6008, 2017, doi: 10.5555/3295222.3295349.
 ```
 
-## 📝 Using Converted Bibitems in LaTeX
+---
 
-Once converted, use the `\bibitem` entries in your LaTeX document:
+## 📄 Using in LaTeX
+
+Paste the generated entries directly inside `thebibliography` at the end of your document:
 
 ```latex
 \documentclass{article}
-\usepackage[numbers]{natbib}
+\usepackage{cite}
+\usepackage{url}
 
 \begin{document}
 
-\section{Introduction}
-This is a citation example \cite{lahat2015multimodal}.
+Here is a citation \cite{vaswani2017attention}.
 
-\section{Bibliography}
-\begin{thebibliography}{150}
+\begin{thebibliography}{99}
 
-\bibitem{lahat2015multimodal}
-Lahat, Dana, Adali, Tülay, Jutten, Christian.
-\newblock Multimodal data fusion: an overview of methods, challenges, and prospects.
-\newblock \emph{Proceedings of the IEEE}, 103(9):1449--1477, 2015.
-
-% Add more \bibitem entries here...
+\bibitem{vaswani2017attention}
+A. Vaswani, N. Shazeer, and N. Parmar, ``Attention is all you need,'' \emph{Advances in Neural Information Processing Systems}, vol. 30, pp. 5998--6008, 2017, doi: 10.5555/3295222.3295349.
 
 \end{thebibliography}
 
 \end{document}
 ```
 
-## 🧪 Testing
+---
 
-Run the test script to verify the converter works correctly:
+## 🔍 Supported Rules & Features
 
-```bash
-python test_converter.py
-```
-
-The test script will:
-- Create sample BibTeX entries
-- Convert them to bibitem format
-- Validate the output structure
-- Display conversion results
-
-
-## ⚙️ Requirements
-
-### Python CLI
-- Python 3.7+
-- bibtexparser 1.4.3
-- pyparsing 3.1.4
-
-### Web Application
-- Modern web browser with JavaScript enabled
-- No installation required!
-
-## 🔗 Links
-
-- **Live Demo**: [https://imranpollob.github.io/BibTeX-to-Bibitem/](https://imranpollob.github.io/BibTeX-to-Bibitem/)
-- **Repository**: [https://github.com/imranpollob/BibTeX-to-Bibitem](https://github.com/imranpollob/BibTeX-to-Bibitem)
-- **Issues**: [https://github.com/imranpollob/BibTeX-to-Bibitem/issues](https://github.com/imranpollob/BibTeX-to-Bibitem/issues)
+- **15+ Entry Types**: `@article`, `@inproceedings`, `@book`, `@incollection`, `@phdthesis`, `@mastersthesis`, `@techreport`, `@proceedings`, `@manual`, `@unpublished`, `@software`, `@dataset`, `@patent`, `@misc`, and `@online`.
+- **Smart Author Parsing**: Initials + surname formatting, `Jr.` suffixes, `von` particles (`L. van Beethoven`), Oxford commas, and corporate authors (`{{Ethereum Foundation}}`).
+- **Sentence Casing**: Preserves protected terms inside braces (`{AI}`, `{EVM}`) and mixed-case terms (`arXiv`).
+- **Clean Identifiers**: Normalizes DOIs (`doi: 10.1109/...`) and formats online access dates.
+- **Cross-Reference Support**: Resolves inherited fields from parent conference proceedings.
 
 ---
 
-<div align="center">
-Made with ❤️ for the LaTeX community
-</div>
+## 🧪 Tests
+
+Run the 54-case regression test suite for both Python and JavaScript implementations:
+
+```bash
+# Python regression suite
+python tests/test_converter.py
+# or using pytest
+pytest tests/
+
+# JavaScript regression suite
+node tests/test_js_converter.js
+```
+
+---
+
+## 📝 License
+
+Distributed under the [MIT License](LICENSE).
