@@ -92,7 +92,6 @@ if (typeof document !== 'undefined') {
   const outputInfo = document.getElementById('output-info');
   const inputBadge = document.getElementById('input-badge');
   const outputBadge = document.getElementById('output-badge');
-  const metricsTime = document.getElementById('metrics-time');
   const fileUpload = document.getElementById('file-upload');
   const convertBtn = document.getElementById('convert-btn');
   const clearInputBtn = document.getElementById('clear-input');
@@ -105,11 +104,18 @@ if (typeof document !== 'undefined') {
 
   // Theme Toggler
   if (themeToggle) {
+    const updateAria = (t) => {
+      themeToggle.setAttribute('aria-checked', t === 'dark' ? 'true' : 'false');
+    };
+    const initialTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    updateAria(initialTheme);
+
     themeToggle.addEventListener('click', () => {
       const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', newTheme);
-      try { localStorage.setItem('theme', newTheme); } catch {}
+      updateAria(newTheme);
+      try { localStorage.setItem('theme', newTheme); } catch { }
       showToast(`Switched to ${newTheme} mode`, 'info');
     });
   }
@@ -117,10 +123,13 @@ if (typeof document !== 'undefined') {
   // OS theme change listener
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
     let savedTheme;
-    try { savedTheme = localStorage.getItem('theme'); } catch {}
+    try { savedTheme = localStorage.getItem('theme'); } catch { }
     if (!savedTheme) {
       const newTheme = e.matches ? 'dark' : 'light';
       document.documentElement.setAttribute('data-theme', newTheme);
+      if (themeToggle) {
+        themeToggle.setAttribute('aria-checked', newTheme === 'dark' ? 'true' : 'false');
+      }
     }
   });
 
@@ -248,7 +257,6 @@ if (typeof document !== 'undefined') {
     }
     if (inputBadge) inputBadge.textContent = '0 entries';
     if (outputBadge) outputBadge.textContent = '0 converted';
-    if (metricsTime) metricsTime.textContent = '0 ms';
     if (copyBtn) copyBtn.disabled = true;
     if (downloadBtn) downloadBtn.disabled = true;
     if (convertBtn) convertBtn.disabled = true;
@@ -266,7 +274,6 @@ if (typeof document !== 'undefined') {
     clearTimeout(convertTimeout);
     renderWarnings([]);
     if (convertBtn) convertBtn.disabled = false;
-    const startTime = performance.now();
     try {
       const entries = parseBibTeX(bibtexText);
       const inputCount = entries.length;
@@ -279,8 +286,6 @@ if (typeof document !== 'undefined') {
       const warnings = getWarnings(entries);
       renderWarnings(warnings);
       const bibitems = convertToBibitem(entries);
-      const elapsed = Math.round(performance.now() - startTime);
-      if (metricsTime) metricsTime.textContent = `${elapsed} ms`;
 
       if (bibitems.length === 0) {
         if (outputInfo) {
@@ -302,16 +307,15 @@ if (typeof document !== 'undefined') {
       const skipped = warnings.length;
       if (outputInfo) {
         if (skipped > 0) {
-          outputInfo.textContent = `Converted ${bibitems.length} ${bibitems.length === 1 ? 'entry' : 'entries'} (${skipped} metadata warnings; review below) in ${elapsed} ms`;
+          outputInfo.textContent = `Converted ${bibitems.length} ${bibitems.length === 1 ? 'entry' : 'entries'} (${skipped} metadata warnings; review below)`;
           outputInfo.className = 'entry-info warning';
         } else {
-          outputInfo.textContent = `Successfully converted ${bibitems.length} ${bibitems.length === 1 ? 'entry' : 'entries'} in ${elapsed} ms`;
+          outputInfo.textContent = `Successfully converted ${bibitems.length} ${bibitems.length === 1 ? 'entry' : 'entries'}`;
           outputInfo.className = 'entry-info success';
         }
       }
     } catch (error) {
       if (outputBadge) outputBadge.textContent = '0 converted';
-      if (metricsTime) metricsTime.textContent = '0 ms';
       if (outputInfo) {
         outputInfo.textContent = `Error: ${error.message}`;
         outputInfo.className = 'entry-info error';

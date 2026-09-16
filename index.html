@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BibTeX to Bibitem Converter | Fast, Free LaTeX Citation Generator</title>
 
-    <!-- SEO &amp; Metadata -->
-    <meta name="description" content="Convert BibTeX references to LaTeX bibitems in your browser.">
-<link rel="stylesheet" href="./src/styles.css">
+    <!-- SEO & Metadata -->
+    <meta name="description"
+        content="Convert BibTeX references into clean LaTeX bibitem entries directly in your browser. Fast, free, private client-side IEEE-style citation generator with no server upload required.">
+    <link rel="stylesheet" href="./src/styles.css">
     <meta name="keywords"
-        content="bibtex to bibitem, bibitem generator, bibtex converter, latex bibliography, ieee bibitem, latex citation generator, bibtex to latex, convert bib to bibitem">
+        content="bibtex to bibitem, bibitem generator, bibtex converter, latex bibliography, ieee bibitem, latex citation generator, bibtex to latex, convert bib to bibitem, thebibliography, bibtex parser">
     <meta name="author" content="Imran Pollob">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://imranpollob.github.io/bibtex-to-bibitem/">
@@ -19,8 +20,12 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://imranpollob.github.io/bibtex-to-bibitem/">
     <meta property="og:title" content="BibTeX to Bibitem Converter | Fast &amp; Professional LaTeX Citation Tool">
-    <meta property="og:description" content="Convert BibTeX references into LaTeX bibitems in your browser.">
+    <meta property="og:description"
+        content="Convert BibTeX references into clean LaTeX bibitem entries directly in your browser. Fast, private, client-side IEEE-style citation generator.">
     <meta property="og:image" content="https://imranpollob.github.io/bibtex-to-bibitem/logo.png">
+    <meta property="og:image:alt" content="BibTeX to Bibitem Converter Logo">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
     <meta property="og:site_name" content="BibTeX to Bibitem Converter">
 
     <!-- Twitter Cards -->
@@ -30,18 +35,21 @@
     <meta name="twitter:description"
         content="Free tool to convert BibTeX files (.bib) to standard LaTeX \bibitem syntax with IEEE-like formatting.">
     <meta name="twitter:image" content="https://imranpollob.github.io/bibtex-to-bibitem/logo.png">
+    <meta name="twitter:image:alt" content="BibTeX to Bibitem Converter Logo">
     <meta name="twitter:creator" content="@imranpollob">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="./logo.png">
     <link rel="apple-touch-icon" href="./logo.png">
 
-    <!-- Theme Color &amp; Early Anti-FOUC script -->
+    <!-- Theme Color & Early Anti-FOUC script -->
     <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#071311" media="(prefers-color-scheme: dark)">
     <script>
         (function () {
             let savedTheme;
-            try { savedTheme = localStorage.getItem('theme'); } catch {}
+            try { savedTheme = localStorage.getItem('theme'); } catch { }
             if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 document.documentElement.setAttribute('data-theme', 'dark');
             } else {
@@ -50,10 +58,9 @@
         })();
     </script>
 
-    <!-- Google Fonts: Outfit &amp; Plus Jakarta Sans &amp; JetBrains Mono -->
+    <!-- Google Fonts: Outfit & Plus Jakarta Sans & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
         rel="stylesheet">
@@ -71,9 +78,10 @@
           "@id": "https://imranpollob.github.io/bibtex-to-bibitem/#app",
           "name": "BibTeX to Bibitem Converter",
           "url": "https://imranpollob.github.io/bibtex-to-bibitem/",
-          "description": "Convert BibTeX bibliography entries to clean LaTeX bibitem format instantly.",
+          "description": "Convert BibTeX references into clean LaTeX bibitem entries directly in your browser. Fast, private, client-side IEEE-style citation generator.",
           "applicationCategory": "EducationalApplication",
           "operatingSystem": "All",
+          "browserRequirements": "Requires JavaScript. Requires HTML5.",
           "author": {
             "@type": "Person",
             "name": "Imran Pollob",
@@ -90,26 +98,34 @@
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "How do I convert BibTeX to bibitem?",
+              "name": "Why convert BibTeX to Bibitem?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Paste your BibTeX (.bib) code into the input box or upload a .bib file. The converter automatically generates clean LaTeX \\bibitem entries ready to paste into your thebibliography environment."
+                "text": "When a submission requires a standalone bibliography, converting to \\bibitem creates an independent, copy-pasteable bibliography without requiring external .bib compilation."
               }
             },
             {
               "@type": "Question",
-              "name": "What BibTeX entry types are supported?",
+              "name": "How are authors formatted?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "The converter supports 15+ entry types including @article, @inproceedings, @book, @incollection, @phdthesis, @mastersthesis, @techreport, @proceedings, @manual, @unpublished, @software, @dataset, @patent, @misc, and @online."
+                "text": "Authors are formatted with first/middle initials and surnames (e.g. J. Smith and A. Brown, Oxford comma for 3+ authors). Corporate authors in braces {{...}} and von-particles (e.g., L. van Beethoven) are fully respected."
               }
             },
             {
               "@type": "Question",
-              "name": "How do I use converted bibitems in LaTeX?",
+              "name": "Are special LaTeX characters preserved?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Place the converted \\bibitem entries inside a \\begin{thebibliography}{99} ... \\end{thebibliography} block at the end of your LaTeX document, and reference them in your text with \\cite{key}."
+                "text": "Yes. Accents (e.g., {\\\"u}, {\\'e}, \\c{c}), mathematical symbols, and escaped characters like \\&, \\%, and \\_ are accurately preserved."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How are DOIs and URLs handled?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "DOIs are automatically normalized (e.g. doi: 10.1109/...) and preferred over duplicate URLs. Web links are formatted with [Online]. Available: \\url{...} and access dates."
               }
             }
           ]
@@ -128,46 +144,40 @@
                 <span class="brand-title">BibTeX <span class="brand-accent">→</span> Bibitem</span>
             </a>
             <div class="nav-actions">
-                <span class="badge badge-brand">By Imran Pollob</span>
-                <a href="https://github.com/imranpollob/bibtex-to-bibitem" target="_blank" rel="noopener noreferrer"
-                    class="btn btn-icon" title="View Source on GitHub" aria-label="GitHub Repository">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
+                <button type="button" id="theme-toggle" class="theme-switch" role="switch" aria-checked="false"
+                    aria-label="Toggle theme" title="Toggle Theme (Light / Dark)">
+                    <svg class="track-icon sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="4"></circle>
                         <path
-                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                            d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4">
                         </path>
                     </svg>
-                </a>
-                <button type="button" id="theme-toggle" class="btn btn-icon theme-toggle" title="Toggle Theme (Light / Dark)"
-                    aria-label="Toggle Theme">
-                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    <svg class="track-icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"></path>
                     </svg>
-                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
+                    <span class="thumb">
+                        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <circle cx="12" cy="12" r="4"></circle>
+                            <path
+                                d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4">
+                            </path>
+                        </svg>
+                        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"></path>
+                        </svg>
+                    </span>
                 </button>
             </div>
         </div>
     </nav>
 
     <div class="container">
-        <!-- Header -->
         <!-- Hero Header -->
         <header class="header">
             <h1 class="hero-title">BibTeX to Bibitem Converter</h1>
             <p class="subtitle">Convert BibTeX bibliography entries into LaTeX
-                <code>\bibitem</code> format for research papers and theses.</p>
+                <code>\bibitem</code> format for research papers and theses.
+            </p>
 
             <!-- Sample Quick Loaders -->
             <div class="sample-bar">
@@ -199,7 +209,8 @@
                             Upload .bib
                         </label>
                         <input type="file" id="file-upload" accept=".bib,.txt" hidden>
-                        <button type="button" id="clear-input" class="btn btn-secondary btn-sm" title="Clear input">Clear</button>
+                        <button type="button" id="clear-input" class="btn btn-secondary btn-sm"
+                            title="Clear input">Clear</button>
                     </div>
                 </div>
                 <div class="textarea-wrapper" id="drop-zone">
@@ -247,9 +258,6 @@
                         <h2 id="output-heading">LaTeX Bibitem Output</h2>
                         <span id="output-badge" class="badge">0 converted</span>
                     </div>
-                    <div class="output-quick-actions">
-                        <span id="metrics-time" class="metric-tag" title="Time taken for conversion">0 ms</span>
-                    </div>
                 </div>
                 <div class="textarea-wrapper">
                     <textarea id="bibitem-output" aria-labelledby="output-heading" spellcheck="false" placeholder="Converted \bibitem entries will appear here formatted in an IEEE-like style...
@@ -264,7 +272,8 @@ Copy the output into your document and review it before submission." readonly></
                 </div>
 
                 <div class="output-button-group">
-                    <button type="button" id="copy-btn" class="btn btn-action" disabled title="Copy all bibitems to clipboard">
+                    <button type="button" id="copy-btn" class="btn btn-action" disabled
+                        title="Copy all bibitems to clipboard">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
@@ -272,7 +281,8 @@ Copy the output into your document and review it before submission." readonly></
                         </svg>
                         Copy to Clipboard
                     </button>
-                    <button type="button" id="download-btn" class="btn btn-action" disabled title="Download bibitems.tex">
+                    <button type="button" id="download-btn" class="btn btn-action" disabled
+                        title="Download bibitems.tex">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -285,7 +295,11 @@ Copy the output into your document and review it before submission." readonly></
             </section>
         </main>
 
-        <section class="card review-note"><strong>Before submitting:</strong> This tool produces IEEE-like references, not a publisher-certified bibliography style. Titles and LaTeX markup are preserved. Check source metadata and your venue’s requirements; conversion does not verify that a reference or DOI exists.<ul id="conversion-warnings" aria-live="polite"></ul></section>
+        <section class="card review-note"><strong>Before submitting:</strong> This tool produces IEEE-like references,
+            not a publisher-certified bibliography style. Titles and LaTeX markup are preserved. Check source metadata
+            and your venue’s requirements; conversion does not verify that a reference or DOI exists.<ul
+                id="conversion-warnings" aria-live="polite"></ul>
+        </section>
 
         <!-- Educational Section: How to use bibitem in LaTeX &amp; FAQ -->
         <section class="guide-section card" aria-labelledby="guide-heading">
@@ -298,7 +312,8 @@ Copy the output into your document and review it before submission." readonly></
             <div class="code-example-card">
                 <div class="code-header">
                     <span class="code-title">main.tex</span>
-                    <button type="button" id="copy-latex-template" class="btn btn-secondary btn-xs" title="Copy LaTeX template">Copy
+                    <button type="button" id="copy-latex-template" class="btn btn-secondary btn-xs"
+                        title="Copy LaTeX template">Copy
                         Template</button>
                 </div>
                 <pre class="code-block"><code id="latex-template-code">\documentclass{article}
@@ -327,7 +342,8 @@ A. Vaswani et al., ``Attention Is All You Need,'' \emph{Advances in Neural Infor
                 <div class="faq-item">
                     <h3>Why convert BibTeX to Bibitem?</h3>
                     <p>When a submission requires a standalone bibliography, converting to
-                        <code>\bibitem</code> creates an independent, copy-pasteable bibliography.</p>
+                        <code>\bibitem</code> creates an independent, copy-pasteable bibliography.
+                    </p>
                 </div>
                 <div class="faq-item">
                     <h3>How are authors formatted?</h3>
@@ -339,7 +355,8 @@ A. Vaswani et al., ``Attention Is All You Need,'' \emph{Advances in Neural Infor
                 <div class="faq-item">
                     <h3>Are special LaTeX characters preserved?</h3>
                     <p>Yes. Accents (e.g., <code>{\"u}</code>, <code>{\'e}</code>, <code>\c{c}</code>), mathematical
-                        symbols, and escaped characters like <code>\&amp;</code>, <code>\%</code>, and <code>\_</code> are
+                        symbols, and escaped characters like <code>\&amp;</code>, <code>\%</code>, and <code>\_</code>
+                        are
                         accurately preserved.</p>
                 </div>
                 <div class="faq-item">
@@ -354,18 +371,11 @@ A. Vaswani et al., ``Attention Is All You Need,'' \emph{Advances in Neural Infor
         <!-- Footer -->
         <footer class="footer">
             <div class="footer-content">
-                <p>Designed &amp; Developed with ❤️ by <a href="https://github.com/imranpollob" target="_blank"
-                        rel="noopener noreferrer"><strong>Imran Pollob</strong></a></p>
-                <div class="footer-links">
-                    <a href="https://github.com/imranpollob/bibtex-to-bibitem" target="_blank"
-                        rel="noopener noreferrer">GitHub Repo</a>
-                    <span class="sep">•</span>
-                    <a href="https://github.com/imranpollob/bibtex-to-bibitem/blob/master/LICENSE" target="_blank"
-                        rel="noopener noreferrer">MIT License</a>
-                    <span class="sep">•</span>
-                    <a href="https://github.com/imranpollob/personal-brand-theme" target="_blank"
-                        rel="noopener noreferrer">Brand Theme</a>
-                </div>
+                <span>Designed &amp; Developed with ❤️ by <a href="https://github.com/imranpollob" target="_blank"
+                        rel="noopener noreferrer"><strong>Imran Pollob</strong></a></span>
+                <span class="sep">•</span>
+                <a href="https://github.com/imranpollob/bibtex-to-bibitem" target="_blank"
+                    rel="noopener noreferrer">GitHub Repo</a>
             </div>
         </footer>
     </div>
