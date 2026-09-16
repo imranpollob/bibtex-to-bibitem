@@ -1,0 +1,23 @@
+{
+  "name": "bibtex-to-bibitem",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A browser-only BibTeX to LaTeX bibitem converter",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "node --test tests/*.test.js",
+    "test:browser": "playwright test",
+    "test:latex": "node scripts/check-latex.js"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "html-validate": "^11.4.0",
+    "vite": "^8.3.0"
+  }
+}
